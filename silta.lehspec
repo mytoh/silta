@@ -1,0 +1,40 @@
+
+(spec
+  (name "silta")
+  (description "wrapper for (scheme *) libraries")
+  (homepage "http://github.com/mytoh/silta")
+  (files (
+          "silta.lehspec"
+          "lib/base/compat.mosh.sls"
+          "lib/base.sls"
+          "lib/case-lambda/compat.mosh.sls"
+          "lib/case-lambda.sls"
+          "lib/char/compat.mosh.sls"
+          "lib/char.sls"
+          "lib/complex/compat.mosh.sls"
+          "lib/complex.sls"
+          "lib/cxr/compat.mosh.sls"
+          "lib/cxr.sls"
+          "lib/eval/compat.mosh.sls"
+          "lib/eval.sls"
+          "lib/file/compat.mosh.sls"
+          "lib/file.sls"
+          "lib/inexact/compat.mosh.sls"
+          "lib/inexact.sls"
+          "lib/lazy/compat.mosh.sls"
+          "lib/lazy.sls"
+          "lib/load/compat.mosh.sls"
+          "lib/load.sls"
+          "lib/process-context/compat.mosh.sls"
+          "lib/process-context.sls"
+          "lib/r5rs/compat.mosh.sls"
+          "lib/r5rs.sls"
+          "lib/read/compat.mosh.sls"
+          "lib/read.sls"
+          "lib/repl/compat.mosh.sls"
+          "lib/repl.sls"
+          "lib/time/compat.mosh.sls"
+          "lib/time.sls"
+          "lib/write/compat.mosh.sls"
+          "lib/write.sls"
+          )))
