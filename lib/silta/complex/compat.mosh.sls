@@ -1,0 +1,7 @@
+
+(library (silta complex compat)
+  (export
+    angle imag-part magnitude
+    make-polar make-rectangular real-part)
+  (import
+    (scheme complex)))
