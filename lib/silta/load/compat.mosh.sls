@@ -1,5 +1,5 @@
 
 (library (silta load compat)
-  (export load)
-  (import (scheme load))
+    (export load)
+  (import (silta util eval))
   )

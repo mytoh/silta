@@ -1,6 +1,6 @@
 
 (library (silta eval compat)
-  (export
-    environment eval)
+    (export
+      environment eval)
   (import
-    (scheme eval)))
+    (silta util eval )))
