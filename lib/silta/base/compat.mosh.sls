@@ -244,8 +244,8 @@
       ;; case
       ;; define-values
       ;; do
-      ;; make-parameter
-      ;; parameterize
+      make-parameter
+      parameterize
       ;; guard
 
       )
@@ -255,7 +255,7 @@
     (rnrs mutable-strings)
     (except (rnrs)
             case
-            ;; syntax-rules
+            syntax-rules
             error
             define-record-type
             ;; SRFI-1
@@ -276,6 +276,7 @@
 
     (silta util bytevector-buffer)
     (silta util char-ready)
+    (for (silta util syntax-rules) run expand)
     )
 
 
