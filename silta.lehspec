@@ -42,4 +42,5 @@
          "lib/silta/util/time.sls"
          "lib/silta/util/weak-box.sls"
          "lib/silta/util/weak-eq-hashtable.sls"
+         "lib/silta/util/syntax-rules.sls"
          )))
