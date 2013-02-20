@@ -3,5 +3,4 @@
     (export
       case-lambda)
   (import
-    (silta case-lambda compat))
-  )
+    (silta case-lambda compat)))

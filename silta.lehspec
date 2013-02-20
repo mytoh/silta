@@ -3,8 +3,7 @@
  (name "silta")
  (description "wrapper for (scheme *) libraries")
  (homepage "http://github.com/mytoh/silta")
- (files (
-         "silta.lehspec"
+ (files ("silta.lehspec"
          "lib/silta/base/compat.mosh.sls"
          "lib/silta/base.sls"
          "lib/silta/case-lambda/compat.mosh.sls"
