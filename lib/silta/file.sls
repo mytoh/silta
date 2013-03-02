@@ -1,10 +1,16 @@
-
 (library (silta file)
-  (export
-    call-with-input-file call-with-output-file
-    delete-file file-exists?
-    open-binary-input-file open-binary-output-file
-    open-input-file open-output-file
-    with-input-from-file with-output-to-file)
+    (export
+      call-with-input-file
+      delete-file
+      open-binary-input-file
+      open-input-file
+      with-input-from-file
+
+      call-with-output-file
+      file-exists?
+      open-binary-output-file
+      open-output-file
+      with-output-to-file
+      )
   (import
     (silta file compat)))
