@@ -1,9 +1,9 @@
-
 (library (silta base compat)
     (export
       ;; draft 9
       *
       +
+      -
       ...
       /
       <
@@ -315,11 +315,11 @@
 
   (define (error-object-irritants obj)
     (and (irritants-condition? obj)
-         (condition-irritants obj)))
+      (condition-irritants obj)))
 
   (define (error-object-message obj)
     (and (message-condition? obj)
-         (condition-message obj)))
+      (condition-message obj)))
 
 
   (define make-list
@@ -338,7 +338,7 @@
   (define (floor/ x y)
     (let ((q (floor-quotient x y)))
       (values q
-              (- x (* q y)))))
+        (- x (* q y)))))
 
   (define floor-remainder modulo)
 
@@ -365,10 +365,10 @@
       (vector-copy! to at from start (- (vector-length from) start)))
      ((to at from start end)
       (if (= start end)
-          to
-          (begin
-            (vector-set! to at (vector-ref from start))
-            (vector-copy! to (+ at 1) from (+ start 1) end))))))
+        to
+        (begin
+          (vector-set! to at (vector-ref from start))
+          (vector-copy! to (+ at 1) from (+ start 1) end))))))
 
 
   (define (bytevector . lis)
@@ -384,7 +384,7 @@
   (define truncate-remainder remainder)
   (define (truncate/ x y)
     (values (truncate-quotient x y)
-            (truncate-remainder x y)))
+      (truncate-remainder x y)))
 
   (define (vector-map proc . args)
     (list->vector (apply map proc (map vector->list args))))
@@ -415,10 +415,10 @@
 
   (define (%string-charlist-paste to at l)
     (if (pair? l)
-        (begin
-          (string-set! to at (car l))
-          (%string-charlist-paste to (+ at 1) (cdr l)))
-        to))
+      (begin
+        (string-set! to at (car l))
+        (%string-charlist-paste to (+ at 1) (cdr l)))
+      to))
 
   (define (square x) (* x x))
 
@@ -443,8 +443,8 @@
   (define (list-set! l k obj)
     (define (itr cur count)
       (if (= count k)
-          (set-car! cur obj)
-          (itr (cdr cur) (+ count 1))))
+        (set-car! cur obj)
+        (itr (cdr cur) (+ count 1))))
     (itr l 0))
 
   (define (list-copy l) (map (lambda (e) e) l))
