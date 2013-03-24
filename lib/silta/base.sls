@@ -1,9 +1,9 @@
-
 (library (silta base)
     (export
       ;; draft 9
       *
       +
+      -
       ...
       /
       <
@@ -260,21 +260,21 @@
       ((_ (test => result) clause1 clause2 ...)
        (let ((temp test))
          (if temp
-             (result temp)
-             (cond clause1 clause2 ...))))
+           (result temp)
+           (cond clause1 clause2 ...))))
       ((_ (test)) test)
       ((_ (test) clause1 clause2 ...)
        (let ((temp test))
          (if temp
-             temp
-             (cond clause1 clause2 ...))))
+           temp
+           (cond clause1 clause2 ...))))
       ((_ (test result1 result2 ...))
        (if test (begin result1 result2 ...)))
       ((_ (test result1 result2 ...)
           clause1 clause2 ...)
        (if test
-           (begin result1 result2 ...)
-           (cond clause1 clause2 ...)))))
+         (begin result1 result2 ...)
+         (cond clause1 clause2 ...)))))
 
   (define-syntax case
     (syntax-rules (else =>)
@@ -291,23 +291,23 @@
       ((_ key
           ((atoms ...) result1 result2 ...))
        (if (memv key '(atoms ...))
-           (begin result1 result2 ...)))
+         (begin result1 result2 ...)))
       ((_ key
           ((atoms ...) => result))
        (if (memv key '(atoms ...))
-           (result key)))
+         (result key)))
       ((_ key
           ((atoms ...) => result)
           clause clauses ...)
        (if (memv key '(atoms ...))
-           (result key)
-           (case key clause clauses ...)))
+         (result key)
+         (case key clause clauses ...)))
       ((_ key
           ((atoms ...) result1 result2 ...)
           clause clauses ...)
        (if (memv key '(atoms ...))
-           (begin result1 result2 ...)
-           (case key clause clauses ...)))))
+         (begin result1 result2 ...)
+         (case key clause clauses ...)))))
 
 
   (define-syntax and
@@ -329,13 +329,13 @@
     (syntax-rules ()
       ((_ test result1 result2 ...)
        (if test
-           (begin result1 result2 ...)))))
+         (begin result1 result2 ...)))))
 
   (define-syntax unless
     (syntax-rules ()
       ((_ test result1 result2 ...)
        (if (not test)
-           (begin result1 result2 ...)))))
+         (begin result1 result2 ...)))))
 
 
   (define-syntax let
@@ -448,7 +448,7 @@
        (define dummy
          (call-with-values (lambda () expr)
            (lambda args #f))))
-      ((_ (var) expr )
+      ((_ (var) expr)
        (define var expr))
       ((_ (var0 var1 ... varn) expr)
        (begin
@@ -493,14 +493,14 @@
            ((loop
              (lambda (var ...)
                (if test
-                   (begin
-                     (if #f #f)
-                     expr ...)
-                   (begin
-                     command
-                     ...
-                     (loop (do "step" var step ...)
-                           ...))))))
+                 (begin
+                   (if #f #f)
+                   expr ...)
+                 (begin
+                   command
+                   ...
+                   (loop (do "step" var step ...)
+                         ...))))))
          (loop init ...)))
       ((_ "step" x)
        x)
@@ -513,26 +513,26 @@
     (syntax-rules ()
       ((_ (var clause ...) e1 e2 ...)
        ((call/cc
-         (lambda (guard-k)
-           (with-exception-handler
-            (lambda (condition)
-              ((call/cc
-                (lambda (handler-k)
-                  (guard-k
-                   (lambda ()
-                     (let ((var condition))
-                       (guard-aux
-                        (handler-k
-                         (lambda ()
-                           (raise-continuable condition)))
-                        clause ...))))))))
-            (lambda ()
-              (call-with-values
-                  (lambda () e1 e2 ...)
-                (lambda args
-                  (guard-k
-                   (lambda ()
-                     (apply values args)))))))))))))
+            (lambda (guard-k)
+              (with-exception-handler
+                  (lambda (condition)
+                    ((call/cc
+                         (lambda (handler-k)
+                           (guard-k
+                            (lambda ()
+                              (let ((var condition))
+                                (guard-aux
+                                 (handler-k
+                                  (lambda ()
+                                    (raise-continuable condition)))
+                                 clause ...))))))))
+                (lambda ()
+                  (call-with-values
+                      (lambda () e1 e2 ...)
+                    (lambda args
+                      (guard-k
+                       (lambda ()
+                         (apply values args)))))))))))))
 
 
   (define-syntax guard-aux
@@ -542,31 +542,31 @@
       ((_ reraise (test => result))
        (let ((temp test))
          (if temp
-             (result temp)
-             reraise)))
+           (result temp)
+           reraise)))
       ((_ reraise (test => result)
           clause1 clause2 ...)
        (let ((temp test))
          (if temp
-             (result temp)
-             (guard-aux reraise clause1 clause2 ...))))
+           (result temp)
+           (guard-aux reraise clause1 clause2 ...))))
       ((_ reraise (test))
        (or test reraise))
       ((_ reraise (test) clause1 clause2 ...)
        (let ((temp test))
          (if temp
-             temp
-             (guard-aux reraise clause1 clause2 ...))))
+           temp
+           (guard-aux reraise clause1 clause2 ...))))
       ((_ reraise (test result1 result2 ...))
        (if test
-           (begin result1 result2 ...)
-           reraise))
+         (begin result1 result2 ...)
+         reraise))
       ((_ reraise
           (test result1 result2 ...)
           clause1 clause2 ...)
        (if test
-           (begin result1 result2 ...)
-           (guard-aux reraise clause1 clause2 ...)))))
+         (begin result1 result2 ...)
+         (guard-aux reraise clause1 clause2 ...)))))
 
 
 
