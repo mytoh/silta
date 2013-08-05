@@ -17,6 +17,7 @@
          "lib/silta/file.sls"
          "lib/silta/inexact/compat.mosh.sls"
          "lib/silta/inexact.sls"
+         "lib/silta/lazy/compat.mosh.sls"
          "lib/silta/lazy.sls"
          "lib/silta/load/compat.mosh.sls"
          "lib/silta/load.sls"
